@@ -108,7 +108,7 @@
             max-width: var(--max-w); margin: 0 auto;
             padding: 8rem 2rem 4rem;
             display: grid; grid-template-columns: 1fr 200px;
-            gap: 3rem; align-items: end;
+            gap: 3rem; align-items: center;
         }
         .hero-text .name {
             font-family: var(--font-serif); font-size: 2.8rem; font-weight: 700;
@@ -131,13 +131,16 @@
         .btn-ghost:hover { border-color: var(--border-hover); color: var(--text); opacity: 1; transform: translateY(-1px); }
         .hero-photo { display: flex; justify-content: flex-end; }
         .photo-frame {
-            width: 180px; height: 180px; border-radius: 20px; overflow: hidden;
+            width: 180px; border-radius: 20px; overflow: hidden;
             border: 1px solid var(--border); background: var(--bg-alt);
             box-shadow: var(--shadow-md);
             display: flex; align-items: center; justify-content: center;
             transition: border-color 0.35s, box-shadow 0.35s;
         }
-        .photo-frame .placeholder { font-size: 3.5rem; color: var(--text-dim); }
+        .photo-frame img {
+            width: 100%; height: auto; display: block;
+        }
+        .photo-frame .placeholder { font-size: 3.5rem; color: var(--text-dim); padding: 4rem 0; }
 
         /* SECTIONS */
         section { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem; }
@@ -259,7 +262,7 @@
         @media (max-width: 768px) {
             .hero { grid-template-columns: 1fr; padding-top: 6.5rem; gap: 1.5rem; }
             .hero-photo { justify-content: flex-start; order: -1; }
-            .photo-frame { width: 120px; height: 120px; border-radius: 16px; }
+            .photo-frame { width: 120px; border-radius: 16px; }
             .hero-text .name { font-size: 2rem; }
             .exp-edu-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .nav-right a.hide-mobile { display: none; }
@@ -277,7 +280,7 @@
 
 <nav>
     <div class="nav-inner">
-        <a href="#" class="nav-logo">Ziye</a>
+        <a href="#" class="nav-logo">Ziye Song</a>
         <div class="nav-right">
             <a href="#research">Research</a>
             <a href="#background">Background</a>
@@ -301,7 +304,7 @@
             My research interests lie in <strong>video generation</strong> and <strong>AI for Science</strong>.
         </p>
         <div class="hero-links">
-            <a href="mailto:your@ntu.edu.sg" class="btn btn-primary"><i class="fas fa-envelope"></i> Email</a>
+            <a href="/cdn-cgi/l/email-protection#e29b8d9790a28c9697cc878697cc9185" class="btn btn-primary"><i class="fas fa-envelope"></i> Email</a>
             <a href="#" class="btn btn-ghost"><i class="fab fa-google"></i> Scholar</a>
             <a href="#" class="btn btn-ghost"><i class="fab fa-github"></i> GitHub</a>
             <a href="#" class="btn btn-ghost"><i class="fas fa-file-alt"></i> CV</a>
@@ -309,8 +312,8 @@
     </div>
     <div class="hero-photo">
         <div class="photo-frame">
-            <!-- Replace with: <img src="assets/photo.jpg" alt="Photo" style="width:100%;height:100%;object-fit:cover;"> -->
-            <span class="placeholder"><i class="fas fa-user"></i></span>
+            <!-- Replace the line below with: <img src="photo.jpg" alt="Ziye Song"> -->
+            <img src="photo.jpg" alt="Ziye Song">
         </div>
     </div>
 </div>
@@ -421,7 +424,7 @@
 <hr class="section-divider">
 <footer>
     <div class="footer-social">
-        <a href="mailto:your@ntu.edu.sg" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="/cdn-cgi/l/email-protection#80f9eff5f2c0eef4f5aee5e4f5aef3e7" title="Email"><i class="fas fa-envelope"></i></a>
         <a href="#" title="Google Scholar"><i class="fab fa-google"></i></a>
         <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
         <a href="#" title="Twitter / X"><i class="fab fa-twitter"></i></a>
@@ -429,7 +432,7 @@
     <span class="footer-copy">&copy; 2025 Ziye Song</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleTheme() {
     const html = document.documentElement;
     const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
@@ -448,10 +451,4 @@ const obs = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-window.addEventListener('scroll', () => {
-    document.querySelector('nav').style.padding = scrollY > 40 ? '0.55rem 2rem' : '0.9rem 2rem';
-});
-</script>
-</body>
-</html>
+document.querySelectorAll('.reveal').forEach(el => obs
