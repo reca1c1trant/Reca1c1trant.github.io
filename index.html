@@ -115,7 +115,7 @@
             line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1rem;
         }
         .hero-text .tagline {
-            font-size: 1.05rem; color: var(--text-secondary);
+            font-size: 1rem; color: var(--text-secondary);
             margin-bottom: 1.5rem; line-height: 1.8;
         }
         .hero-text .tagline strong { color: var(--text); font-weight: 600; }
@@ -152,22 +152,19 @@
         .section-header .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
         .section-header h2 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
 
-        /* INTEREST CARDS */
-        .interest-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; }
-        .interest-card {
-            padding: 1.3rem 1.5rem; border-radius: 12px;
-            background: var(--bg-card); border: 1px solid var(--border);
-            box-shadow: var(--shadow-sm); transition: all 0.25s;
+        /* RESEARCH LIST */
+        .research-list {
+            list-style: none; padding: 0; margin: 0;
         }
-        .interest-card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-        .interest-card .ic-icon {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 36px; height: 36px; border-radius: 9px;
-            background: var(--accent-soft); color: var(--accent-text);
-            font-size: 0.9rem; margin-bottom: 0.7rem;
+        .research-list li {
+            font-size: 1.05rem; color: var(--text);
+            padding: 0.5rem 0; padding-left: 1.2rem;
+            position: relative;
         }
-        .interest-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
-        .interest-card p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.65; }
+        .research-list li::before {
+            content: '•'; position: absolute; left: 0;
+            color: var(--accent); font-weight: bold;
+        }
 
         /* TIMELINE */
         .exp-edu-grid { display: flex; flex-direction: column; gap: 2.5rem; }
@@ -184,17 +181,17 @@
             content: ''; position: absolute; left: -4px; top: 6px;
             width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
         }
-        .tl-item .tl-time { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.04em; margin-bottom: 0.2rem; }
-        .tl-item h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.1rem; }
-        .tl-item .tl-org { font-size: 0.85rem; color: var(--accent-text); margin-bottom: 0.3rem; }
-        .tl-item p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.65; }
+        .tl-item .tl-time { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-dim); letter-spacing: 0.04em; margin-bottom: 0.2rem; }
+        .tl-item h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.1rem; }
+        .tl-item .tl-org { font-size: 1rem; color: var(--accent-text); margin-bottom: 0.3rem; }
+        .tl-item p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; }
         .tl-logo {
-            width: 60px; height: 60px; border-radius: 12px;
+            width: 200px; height: auto; min-height: 80px; border-radius: 16px;
             background: var(--bg-card); border: 1px solid var(--border);
             display: flex; align-items: center; justify-content: center;
-            padding: 8px; box-shadow: var(--shadow-sm); flex-shrink: 0;
+            padding: 16px; box-shadow: var(--shadow-sm); flex-shrink: 0;
         }
-        .tl-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .tl-logo img { max-width: 100%; height: auto; object-fit: contain; }
 
         /* PUBLICATIONS */
         .pub-item {
@@ -222,7 +219,7 @@
         }
 
         /* PROJECTS */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.8rem; }
+        .projects-grid { display: flex; flex-direction: column; gap: 0.8rem; }
         .proj-card {
             border-radius: 12px; background: var(--bg-card);
             border: 1px solid var(--border); box-shadow: var(--shadow-sm);
@@ -242,8 +239,8 @@
             color: #fff; font-size: 1rem; border: 1px solid rgba(255,255,255,0.2); z-index: 1;
         }
         .proj-body { padding: 1.1rem 1.3rem; }
-        .proj-body h3 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.3rem; }
-        .proj-body p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; }
+        .proj-body h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .proj-body p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
         .proj-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; padding: 0 1.3rem 1.1rem; }
         .proj-tags span {
             padding: 0.15rem 0.5rem; border-radius: 5px;
@@ -274,11 +271,10 @@
             .hero-text .name { font-size: 2rem; }
             .exp-edu-grid { gap: 1.5rem; }
             .tl-item { grid-template-columns: 1fr; gap: 1rem; }
-            .tl-logo { width: 50px; height: 50px; order: -1; }
+            .tl-logo { width: 150px; height: auto; order: -1; }
             .nav-right a.hide-mobile { display: none; }
             footer { flex-direction: column; gap: 1rem; align-items: flex-start; }
             .pub-item { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
         }
 
         /* SCROLL ANIMATION */
@@ -294,8 +290,7 @@
         <div class="nav-right">
             <a href="#research">Research</a>
             <a href="#background">Background</a>
-            <a href="#publications" class="hide-mobile">Publications</a>
-            <a href="#projects">Projects</a>
+            <a href="#publications">Publications</a>
             <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
                 <span class="icon-sun"><i class="fas fa-sun"></i></span>
                 <span class="icon-moon"><i class="fas fa-moon"></i></span>
@@ -310,11 +305,14 @@
         <p class="tagline">
             I am a Master of Artificial Intelligence student at <strong>Nanyang Technological University</strong>,
             supervised by <a href="https://guosheng.github.io/" target="_blank">Prof. Guosheng Lin</a>.
-            I received my Bachelor's degree from <strong>Southern University of Science and Technology (SUSTech)</strong>.
+            Previously, I received my Bachelor's degree from <strong>Southern University of Science and Technology (SUSTech)</strong>.
             My research interests lie in <strong>video generation</strong> and <strong>AI for Science</strong>.
         </p>
+        <p class="tagline" style="color: var(--accent-text); font-weight: 500;">
+            I am looking for PhD opportunities in Fall 2027.
+        </p>
         <div class="hero-links">
-            <a href="/cdn-cgi/l/email-protection#e29b8d9790a28c9697cc878697cc9185" class="btn btn-primary"><i class="fas fa-envelope"></i> Email</a>
+            <a href="mailto:song0304@e.ntu.edu.sg" class="btn btn-primary"><i class="fas fa-envelope"></i> Email</a>
             <a href="#" class="btn btn-ghost"><i class="fab fa-google"></i> Scholar</a>
             <a href="#" class="btn btn-ghost"><i class="fab fa-github"></i> GitHub</a>
             <a href="#" class="btn btn-ghost"><i class="fas fa-file-alt"></i> CV</a>
@@ -331,23 +329,11 @@
 <hr class="section-divider">
 <section id="research">
     <div class="section-header reveal"><span class="dot"></span><h2>Research Interests</h2></div>
-    <div class="interest-cards">
-        <div class="interest-card reveal">
-            <div class="ic-icon"><i class="fas fa-film"></i></div>
-            <h3>Video Generation & Editing</h3>
-            <p>Diffusion and flow-matching architectures for video synthesis. Training-free editing and LoRA-based fine-tuning approaches.</p>
-        </div>
-        <div class="interest-card reveal">
-            <div class="ic-icon"><i class="fas fa-atom"></i></div>
-            <h3>AI for Science</h3>
-            <p>Transformer-based PDE solvers and physics-informed neural networks for scientific computing tasks.</p>
-        </div>
-        <div class="interest-card reveal">
-            <div class="ic-icon"><i class="fas fa-cube"></i></div>
-            <h3>Generative Models</h3>
-            <p>Diffusion models, video diffusion transformers, and their applications in visual content creation.</p>
-        </div>
-    </div>
+    <ul class="research-list reveal">
+        <li>Video Generation & Editing</li>
+        <li>AI for Science</li>
+        <li>Generative Models</li>
+    </ul>
 </section>
 
 <hr class="section-divider">
@@ -358,7 +344,7 @@
             <div class="col-label">Experience</div>
             <div class="tl-item reveal">
                 <div class="tl-content">
-                    <div class="tl-time">2025 — Present</div>
+                    <div class="tl-time">Aug 2025 — May 2026</div>
                     <h3>Research Intern</h3>
                     <div class="tl-org">A*STAR, Centre for Frontier AI Research (CFAR)</div>
                     <p>Supervised by <a href="https://yueminglyu.github.io/" target="_blank">Dr. Yueming Lyu</a>. Working on AI4Science projects including Transformer-based PDE solvers and physics-informed neural networks.</p>
@@ -372,10 +358,10 @@
             <div class="col-label">Education</div>
             <div class="tl-item reveal">
                 <div class="tl-content">
-                    <div class="tl-time">2024 — 2026 (Expected)</div>
-                    <h3>M.Sc. in Artificial Intelligence</h3>
+                    <div class="tl-time">Aug 2025 — May 2026</div>
+                    <h3>Master of Science Degree</h3>
                     <div class="tl-org">Nanyang Technological University</div>
-                    <p>Supervised by <a href="https://guosheng.github.io/" target="_blank">Prof. Guosheng Lin</a>. GPA: 4.3/5.0.</p>
+                    <p>Major in Artificial Intelligence. Supervised by <a href="https://guosheng.github.io/" target="_blank">Prof. Guosheng Lin</a>. GPA: 4.4/5.0.</p>
                 </div>
                 <div class="tl-logo">
                     <img src="assets/ntu-logo.png" alt="NTU">
@@ -383,10 +369,21 @@
             </div>
             <div class="tl-item reveal">
                 <div class="tl-content">
-                    <div class="tl-time">2020 — 2024</div>
+                    <div class="tl-time">Jun 2024 — Jul 2024</div>
+                    <h3>Visiting Student</h3>
+                    <div class="tl-org">National University of Singapore</div>
+                    <p>Received Special Mention Prize.</p>
+                </div>
+                <div class="tl-logo">
+                    <img src="assets/fullcolorlogo.jpg" alt="NUS">
+                </div>
+            </div>
+            <div class="tl-item reveal">
+                <div class="tl-content">
+                    <div class="tl-time">Sep 2021 — Jun 2025</div>
                     <h3>Bachelor's Degree</h3>
                     <div class="tl-org">Southern University of Science and Technology</div>
-                    <p></p>
+                    <p>Major in Data Science. Supervised by <a href="https://www.sustech.edu.cn/zh/faculties/jingbing-yi.html" target="_blank">Prof. Jingbing Yi</a>.</p>
                 </div>
                 <div class="tl-logo">
                     <img src="assets/sustech-logo.png" alt="SUSTech">
@@ -420,41 +417,14 @@
 </section>
 
 <hr class="section-divider">
-<section id="projects">
-    <div class="section-header reveal"><span class="dot"></span><h2>Projects</h2></div>
-    <div class="projects-grid">
-        <a class="proj-card reveal" href="#">
-            <div class="proj-thumb" style="background: linear-gradient(135deg, #312e81, #4338ca, #6366f1);">
-                <div class="play"><i class="fas fa-play" style="margin-left:2px;"></i></div>
-            </div>
-            <div class="proj-body">
-                <h3>Video Generation Research</h3>
-                <p>Exploring diffusion-based video synthesis with training-free editing and LoRA fine-tuning.</p>
-            </div>
-            <div class="proj-tags"><span>Diffusion</span><span>Video</span><span>LoRA</span></div>
-        </a>
-        <a class="proj-card reveal" href="#">
-            <div class="proj-thumb" style="background: linear-gradient(135deg, #134e4a, #0d9488, #14b8a6);">
-                <div class="play"><i class="fas fa-wave-square"></i></div>
-            </div>
-            <div class="proj-body">
-                <h3>AI4Science: PDE Solvers</h3>
-                <p>Transformer-based architectures for autoregressive temporal prediction across PDE types.</p>
-            </div>
-            <div class="proj-tags"><span>Transformer</span><span>PDE</span><span>Physics-Informed</span></div>
-        </a>
-    </div>
-</section>
-
-<hr class="section-divider">
 <footer>
     <div class="footer-social">
-        <a href="/cdn-cgi/l/email-protection#80f9eff5f2c0eef4f5aee5e4f5aef3e7" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:song0304@e.ntu.edu.sg" title="Email"><i class="fas fa-envelope"></i></a>
         <a href="#" title="Google Scholar"><i class="fab fa-google"></i></a>
         <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
         <a href="#" title="Twitter / X"><i class="fab fa-twitter"></i></a>
     </div>
-    <span class="footer-copy">&copy; 2025 Ziye Song</span>
+    <span class="footer-copy">&copy; 2026 Ziye Song · Last updated in Mar. 2026</span>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
