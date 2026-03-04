@@ -236,6 +236,9 @@
         .pub-links a:hover { opacity: 0.8; }
         .pub-links img { height: 20px; }
         .pub-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+        .pub-note { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 1.2rem; font-style: italic; }
+        .pub-card.highlighted { background: #fff0f5; border-color: #f0d0dd; }
+        [data-theme="dark"] .pub-card.highlighted { background: rgba(255,182,193,0.1); border-color: rgba(255,182,193,0.25); }
         @media (max-width: 768px) {
             .pub-card { grid-template-columns: 1fr; }
             .pub-thumbnail img { width: 100%; }
@@ -419,6 +422,7 @@
 <hr class="section-divider">
 <section id="publications">
     <div class="section-header reveal"><span class="dot"></span><h2>Publications</h2></div>
+    <p class="pub-note reveal">(*Equal contribution. ✉Corresponding author.)</p>
     <div class="pub-card reveal">
         <div class="pub-thumbnail">
             <img src="assets/output_small.gif" alt="ICVE Demo" style="width: 220px; height: auto; border-radius: 8px;">
