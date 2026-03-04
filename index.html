@@ -166,6 +166,24 @@
             color: var(--accent); font-weight: bold;
         }
 
+        /* AWARDS LIST */
+        .awards-list {
+            list-style: none; padding: 0; margin: 0;
+        }
+        .awards-list li {
+            font-size: 0.95rem; color: var(--text);
+            padding: 0.6rem 0; padding-left: 1.2rem;
+            position: relative; line-height: 1.6;
+        }
+        .awards-list li::before {
+            content: '🏆'; position: absolute; left: 0;
+            font-size: 0.85rem;
+        }
+        .award-name { font-weight: 600; color: var(--accent-text); }
+        .award-org { color: var(--text); }
+        .award-desc { color: var(--text-secondary); font-style: italic; }
+        .award-time { color: var(--text-dim); }
+
         /* TIMELINE */
         .exp-edu-grid { display: flex; flex-direction: column; gap: 2.5rem; }
         .col-label {
@@ -194,34 +212,33 @@
         .tl-logo img { max-width: 100%; height: auto; object-fit: contain; }
 
         /* PUBLICATIONS */
-        .pub-item {
-            padding: 1.3rem 1.5rem; border-radius: 12px;
+        .pub-card {
+            display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem;
+            padding: 1.5rem; border-radius: 12px;
             background: var(--bg-card); border: 1px solid var(--border);
-            box-shadow: var(--shadow-sm); margin-bottom: 0.7rem; transition: all 0.25s;
-            display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
+            box-shadow: var(--shadow-sm); margin-bottom: 1rem; transition: all 0.25s;
+            align-items: center;
         }
-        .pub-item:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); }
-        .pub-venue {
-            font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-text);
-            letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem;
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            background: var(--accent-soft); padding: 0.25rem 0.6rem; border-radius: 6px;
+        .pub-card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); }
+        .pub-thumbnail { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .pub-thumb-placeholder {
+            width: 180px; height: 110px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.8); font-size: 2.5rem;
         }
-        .pub-item h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.5; }
-        .pub-authors { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
-        .pub-authors .me { color: var(--text); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 2px; }
-        .pub-abstract { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-top: 0.5rem; }
-        .pub-badges { display: flex; gap: 0.35rem; flex-shrink: 0; padding-top: 0.3rem; }
-        .pub-badges a {
-            display: inline-flex; align-items: center; gap: 0.3rem;
-            padding: 0.3rem 0.65rem; border-radius: 6px;
-            background: var(--accent-soft); color: var(--accent-text);
-            font-size: 0.7rem; font-weight: 500; text-decoration: none; transition: all 0.2s;
-        }
-        .pub-badges a:hover { background: var(--accent); color: #fff; opacity: 1; }
-        .pub-empty {
-            padding: 2rem; border-radius: 12px; border: 1.5px dashed var(--border);
-            text-align: center; color: var(--text-dim); font-size: 0.88rem;
+        .pub-thumb-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+        .pub-info { display: flex; flex-direction: column; }
+        .pub-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.4; color: var(--text); }
+        .pub-authors { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.6rem; line-height: 1.5; }
+        .pub-authors strong { color: var(--text); }
+        .pub-links { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+        .pub-links a { display: inline-block; transition: opacity 0.2s; }
+        .pub-links a:hover { opacity: 0.8; }
+        .pub-links img { height: 20px; }
+        .pub-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+        @media (max-width: 768px) {
+            .pub-card { grid-template-columns: 1fr; }
+            .pub-thumbnail img { width: 100%; }
         }
 
         /* PROJECTS */
@@ -375,7 +392,7 @@
             </div>
             <div class="tl-item reveal">
                 <div class="tl-content">
-                    <div class="tl-time">Jun 2024 — Jul 2024</div>
+                    <div class="tl-time">May 2024 — Jul 2024</div>
                     <h3>Visiting Student</h3>
                     <div class="tl-org">National University of Singapore</div>
                     <p>Received Special Mention Prize.</p>
@@ -402,19 +419,40 @@
 <hr class="section-divider">
 <section id="publications">
     <div class="section-header reveal"><span class="dot"></span><h2>Publications</h2></div>
-    <div class="pub-item reveal">
-        <div class="pub-content">
-            <div class="pub-venue"><i class="fas fa-video"></i> Video Editing</div>
-            <h3>In-Context Learning with Unpaired Clips for Instruction-based Video Editing</h3>
-            <div class="pub-authors">Xinyao Liao, Xianfang Zeng, <span class="me">Ziye Song</span>, Zhoujie Fu, Gang Yu, Guosheng Lin</div>
-            <p class="pub-abstract">A cost-effective pretraining method using unpaired video clips for instruction-based video editing, achieving 12% improvement in editing instruction following and 15% improvement in editing quality.</p>
+    <div class="pub-card reveal">
+        <div class="pub-thumbnail">
+            <img src="assets/output_small.gif" alt="ICVE Demo" style="width: 220px; height: auto; border-radius: 8px;">
         </div>
-        <div class="pub-badges">
-            <a href="https://arxiv.org/pdf/2510.14648" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
-            <a href="https://github.com/leoisufa/ICVE" target="_blank"><i class="fab fa-github"></i> Code</a>
-            <a href="https://arxiv.org/abs/2510.14648" target="_blank"><i class="fas fa-globe"></i> arXiv</a>
+        <div class="pub-info">
+            <h3 class="pub-title">In-Context Learning with Unpaired Clips for Instruction-based Video Editing</h3>
+            <div class="pub-authors">
+                Xinyao Liao, Xianfang Zeng, <strong>Ziye Song</strong>, Zhoujie Fu, Gang Yu, Guosheng Lin<sup>✉</sup>
+            </div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2510.14648" target="_blank"><img src="https://img.shields.io/badge/arXiv-2510.14648-b31b1b?style=flat-square&logo=arxiv" alt="arXiv"></a>
+                <a href="https://arxiv.org/pdf/2510.14648" target="_blank"><img src="https://img.shields.io/badge/PDF-Paper-blue?style=flat-square&logo=adobeacrobatreader" alt="PDF"></a>
+                <a href="https://github.com/leoisufa/ICVE" target="_blank"><img src="https://img.shields.io/badge/GitHub-Code-1f883d?style=flat-square&logo=github" alt="Code"></a>
+            </div>
+            <p class="pub-desc">A cost-effective pretraining method using unpaired video clips for instruction-based video editing, achieving 12% improvement in editing instruction following and 15% improvement in editing quality.</p>
         </div>
     </div>
+</section>
+
+<hr class="section-divider">
+<section id="awards">
+    <div class="section-header reveal"><span class="dot"></span><h2>Honors and Awards</h2></div>
+    <ul class="awards-list reveal">
+        <li>
+            <span class="award-name">Special Mention Prize</span>,
+            <span class="award-org">NUS School of Computing Summer Workshop</span>,
+            <span class="award-time">Jul 2024</span>
+        </li>
+        <li>
+            <span class="award-name">Finalist</span>,
+            <span class="award-org">Mathematical Contest in Modeling (MCM)</span>,
+            <span class="award-time">2024</span>
+        </li>
+    </ul>
 </section>
 
 <hr class="section-divider">
