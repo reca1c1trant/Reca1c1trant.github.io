@@ -201,10 +201,16 @@
             display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
         }
         .pub-item:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); }
-        .pub-venue { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-text); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.3rem; }
-        .pub-item h3 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.25rem; line-height: 1.5; }
-        .pub-authors { font-size: 0.8rem; color: var(--text-secondary); }
+        .pub-venue {
+            font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-text);
+            letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            background: var(--accent-soft); padding: 0.25rem 0.6rem; border-radius: 6px;
+        }
+        .pub-item h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.5; }
+        .pub-authors { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
         .pub-authors .me { color: var(--text); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 2px; }
+        .pub-abstract { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-top: 0.5rem; }
         .pub-badges { display: flex; gap: 0.35rem; flex-shrink: 0; padding-top: 0.3rem; }
         .pub-badges a {
             display: inline-flex; align-items: center; gap: 0.3rem;
@@ -396,23 +402,18 @@
 <hr class="section-divider">
 <section id="publications">
     <div class="section-header reveal"><span class="dot"></span><h2>Publications</h2></div>
-    <!-- TEMPLATE: uncomment and duplicate as needed
     <div class="pub-item reveal">
-        <div>
-            <div class="pub-venue">NeurIPS 2026</div>
-            <h3>Your Paper Title Here</h3>
-            <div class="pub-authors"><span class="me">Ziye Song</span>, Author Two, Author Three</div>
+        <div class="pub-content">
+            <div class="pub-venue"><i class="fas fa-video"></i> Video Editing</div>
+            <h3>In-Context Learning with Unpaired Clips for Instruction-based Video Editing</h3>
+            <div class="pub-authors">Xinyao Liao, Xianfang Zeng, <span class="me">Ziye Song</span>, Zhoujie Fu, Gang Yu, Guosheng Lin</div>
+            <p class="pub-abstract">A cost-effective pretraining method using unpaired video clips for instruction-based video editing, achieving 12% improvement in editing instruction following and 15% improvement in editing quality.</p>
         </div>
         <div class="pub-badges">
-            <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-            <a href="#"><i class="fab fa-github"></i> Code</a>
-            <a href="#"><i class="fas fa-globe"></i> Page</a>
+            <a href="https://arxiv.org/pdf/2510.14648" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+            <a href="https://github.com/leoisufa/ICVE" target="_blank"><i class="fab fa-github"></i> Code</a>
+            <a href="https://arxiv.org/abs/2510.14648" target="_blank"><i class="fas fa-globe"></i> arXiv</a>
         </div>
-    </div>
-    -->
-    <div class="pub-empty reveal">
-        <i class="fas fa-flask" style="display:block;font-size:1.2rem;color:var(--accent-text);margin-bottom:0.5rem;"></i>
-        Papers in preparation — stay tuned!
     </div>
 </section>
 
